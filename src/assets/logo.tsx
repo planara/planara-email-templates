@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import { CSSProperties } from 'react';
 
 export const LogoIcon = (props: { color: string; styles: CSSProperties }) => {
   const { color, styles } = props;
@@ -12,11 +12,7 @@ export const LogoIcon = (props: { color: string; styles: CSSProperties }) => {
       preserveAspectRatio="xMidYMid meet"
       style={styles}
     >
-      <g
-        transform="translate(0,1024) scale(0.1,-0.1)"
-        fill={color}
-        stroke="none"
-      >
+      <g transform="translate(0,1024) scale(0.1,-0.1)" fill={color} stroke="none">
         <path
           d="M1905 6719 c-57 -31 -140 -79 -490 -284 -170 -100 -412 -241 -536
     -313 -125 -73 -235 -142 -245 -153 -18 -20 -19 -53 -22 -775 -2 -509 1 -761 8

@@ -15,12 +15,14 @@ import {
 import { LogoIcon } from '../assets/logo';
 
 type EmailConfirmationProps = {
-  code?: string;
+  digits?: [string, string, string, string];
+  year?: string;
 };
 
-export const EmailConfirmation = ({ code = '3456' }: EmailConfirmationProps) => {
-  const digits = code.split('').slice(0, 4);
-
+export const EmailConfirmation = ({
+  digits = ['3', '4', '5', '6'],
+  year = new Date().getFullYear().toString(),
+}: EmailConfirmationProps) => {
   return (
     <Html>
       <Head />
@@ -65,7 +67,8 @@ export const EmailConfirmation = ({ code = '3456' }: EmailConfirmationProps) => 
             </Text>
 
             <Section style={styles.footer}>
-              <Text style={styles.footerText}>© {new Date().getFullYear()} Planara</Text>
+              <Text style={styles.footerText}>© {year} Planara</Text>
+
               <Text style={styles.footerDescription}>
                 Веб-пространство для создания и управления 3D-сценами.
               </Text>
@@ -89,7 +92,6 @@ const styles: Record<string, React.CSSProperties> = {
     width: '100%',
     maxWidth: '520px',
     margin: '0 auto',
-
     backgroundColor: '#ffffff',
     border: '1px solid #eeeeee',
     borderRadius: '28px',
@@ -101,11 +103,11 @@ const styles: Record<string, React.CSSProperties> = {
   },
 
   brand: {
-    backgroundColor: '#111111',
     width: '100%',
     height: '120px',
-    textAlign: 'center',
+    backgroundColor: '#111111',
     borderRadius: '28px',
+    textAlign: 'center',
   },
 
   brandRow: {
@@ -172,22 +174,16 @@ const styles: Record<string, React.CSSProperties> = {
 
   codeField: {
     display: 'inline-block',
-
     width: '48px',
     height: '60px',
-
     margin: '0 4px',
-
     border: '1px solid #d1d1d1',
     borderRadius: '6px',
-
     backgroundColor: '#f7f7f7',
     color: '#111111',
-
     fontSize: '24px',
     fontWeight: '600',
     lineHeight: '60px',
-
     textAlign: 'center',
     verticalAlign: 'middle',
   },
