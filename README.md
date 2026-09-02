@@ -1,4 +1,4 @@
-# Planara Email Templates
+# Email Templates
 
 Набор email-шаблонов для сервисов.
 
