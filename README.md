@@ -1,3 +1,8 @@
+![build](https://github.com/planara/planara-email-templates/actions/workflows/build.yml/badge.svg)
+![release](https://github.com/planara/planara-email-templates/actions/workflows/release.yml/badge.svg)
+![version](https://img.shields.io/github/v/tag/planara/planara-email-templates?sort=semver)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+
 # Planara Email Templates
 
 Набор email-шаблонов для сервисов.
