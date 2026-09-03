@@ -6,13 +6,12 @@ import {
   Head,
   Heading,
   Html,
+  Img,
   Preview,
   Row,
   Section,
   Text,
 } from 'react-email';
-
-import { LogoIcon } from '../assets/logo';
 
 type EmailConfirmationProps = {
   digits?: [string, string, string, string];
@@ -34,7 +33,13 @@ export const EmailConfirmation = ({
           <Section style={styles.brand}>
             <Row style={styles.brandRow}>
               <Column style={styles.brandLogoColumn}>
-                <LogoIcon color="#ffffff" styles={styles.logo} />
+                <Img
+                  src="https://planara.ru/.well-known/email/logo.png"
+                  alt="Planara"
+                  width="42"
+                  height="42"
+                  style={styles.logo}
+                />
               </Column>
 
               <Column style={styles.brandNameColumn}>
@@ -53,13 +58,15 @@ export const EmailConfirmation = ({
             </Section>
 
             <Section style={styles.codeSection}>
-              <Text style={styles.codeRow}>
+              <Row style={styles.codeRow}>
                 {digits.map((digit, index) => (
-                  <span key={index} style={styles.codeField}>
-                    {digit}
-                  </span>
+                  <React.Fragment key={index}>
+                    <Column style={styles.codeField}>{digit}</Column>
+
+                    {index < digits.length - 1 && <Column style={styles.codeSpacer}>&nbsp;</Column>}
+                  </React.Fragment>
                 ))}
-              </Text>
+              </Row>
             </Section>
 
             <Text style={styles.description}>
@@ -127,6 +134,7 @@ const styles: Record<string, React.CSSProperties> = {
   },
 
   logo: {
+    display: 'block',
     width: '42px',
     height: '42px',
   },
@@ -167,16 +175,13 @@ const styles: Record<string, React.CSSProperties> = {
   },
 
   codeRow: {
-    margin: '0',
-    textAlign: 'center',
-    whiteSpace: 'nowrap',
+    width: 'auto',
+    margin: '0 auto',
   },
 
   codeField: {
-    display: 'inline-block',
     width: '48px',
     height: '60px',
-    margin: '0 4px',
     border: '1px solid #d1d1d1',
     borderRadius: '6px',
     backgroundColor: '#f7f7f7',
@@ -186,6 +191,12 @@ const styles: Record<string, React.CSSProperties> = {
     lineHeight: '60px',
     textAlign: 'center',
     verticalAlign: 'middle',
+  },
+
+  codeSpacer: {
+    width: '8px',
+    fontSize: '1px',
+    lineHeight: '1px',
   },
 
   description: {
